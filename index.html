@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aroma Café - Menú & Experiencia</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4a2c2a;
+            --accent: #d4a373;
+            --bg-light: #fefae0;
+            --text-dark: #2b1e1a;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        /* Navegación */
+        header {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Carrusel / Hero con movimiento */
+        .hero-slider {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        /* Imagen 1: Calientes */
+        .slide-1 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('88c25c6e-607b-46be-b796-9c3f669bd2d7.jpg');
+        }
+
+        /* Imagen 2: Helados */
+        .slide-2 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('61d2ed99-e13d-43ec-a070-6726ec04cedf.jpg');
+        }
+
+        .slide-content {
+            text-align: center;
+            color: #fff;
+            max-width: 700px;
+            padding: 20px;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards;
+        }
+
+        .slide-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        .slide-content p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Menú Sección */
+        .menu-section {
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+            display: block;
+            margin: 10px auto 0;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--accent);
+        }
+
+        .menu-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .size-badge {
+            font-size: 0.9rem;
+            background: var(--accent);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .menu-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .menu-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .flavor-box {
+            background-color: #faf0ca;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .flavor-box h4 {
+            font-size: 1rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .flavor-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado -->
+    <header>
+        <h1>Aroma Café</h1>
+        <nav>
+  <a href="#inicio">Inicio</a>
+  <a href="#menu">Menú</a>
+  <a href="#aprendizaje">Aprendizaje</a>
+</nav>
+    </header>
+<!-- Sección Aprendizaje -->
+<section id="aprendizaje" style="padding: 2rem; max-width: 900px; margin: auto;">
+  <h2>Aprendizaje del Café</h2>
+
+  <!-- Información del Café y Altitud -->
+  <article style="margin-bottom: 2rem;">
+    <h3>NUESTRO CAFÉ: BOURBON ROJO</h3>
+    <p>
+      Utilizamos la variedad <strong>Bourbon Rojo</strong>, reconocida por su excelente calidad de taza, 
+      dulzor natural y acidez equilibrada.
+    </p>
+    
+    <!-- Imagen de cerezas de café Bourbon Rojo -->
+    <div style="text-align: center; margin: 1rem 0;">
+      <img src="1000077409.jpg" alt="Café Bourbon Rojo" style="max-width: 100%; height: auto; border-radius: 8px;">
+    </div>
+
+    <ul>
+      <li><strong>Altitud de cultivo:</strong> Entre 1,200 y 2,000 metros sobre el nivel del mar (msnm).</li>
+      <li><strong>Características:</strong> Notas a caramelo, chocolate y frutas, con un cuerpo sedoso y un aroma complejo.</li>
+    </ul>
+  </article>
+
+  <!-- Métodos de Preparación -->
+  <article>
+    <h3>MÉTODOS DE PREPARACIÓN</h3>
+
+    <!-- Prensa Francesa -->
+    <div style="margin-bottom: 1.5rem; border: 1px solid #ddd; padding: 1rem; border-radius: 8px;">
+      <h4>Prensa Francesa (Inmersión)[cite: 1]</h4>
+      
+      <!-- Guía Prensa Francesa -->
+      <div style="text-align: center; margin: 1rem 0;">
+        <img src="1000075321.jpg" alt="Guía Prensa Francesa" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </div>
+
+      <ul>
+        <li><strong>Método:</strong> Inmersión completa donde el café se mezcla con agua caliente durante varios minutos[cite: 2].</li>
+        <li><strong>Molienda:</strong> Gruesa (similar a la sal gorda)[cite: 3].</li>
+        <li><strong>Tiempo de preparación:</strong> 4 a 5 minutos[cite: 4].</li>
+        <li><strong>Sabor y cuerpo:</strong> Café suave, redondo, con textura sedosa y notas dulces equilibradas[cite: 5, 6].</li>
+      </ul>
+    </div>
+
+    <!-- Cafetera Italiana -->
+    <div style="border: 1px solid #ddd; padding: 1rem; border-radius: 8px;">
+      <h4>Cafetera Italiana / Moka (Presión)[cite: 7, 8]</h4>
+      
+      <!-- Guía Cafetera Italiana -->
+      <div style="text-align: center; margin: 1rem 0;">
+        <img src="1000075333.jpg" alt="Cafetera Italiana" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </div>
+
+      <ul>
+        <li><strong>Método:</strong> Extracción por presión de vapor de agua hirviendo[cite: 9].</li>
+        <li><strong>Molienda:</strong> Media-fina[cite: 10].</li>
+        <li><strong>Tiempo de preparación:</strong> 5 a 7 minutos.</li>
+        <li><strong>Sabor y cuerpo:</strong> Café intenso, concentrado, aromático y con notas tostadas[cite: 12, 13].</li>
+      </ul>
+    </div>
+  </article>
+</section>
+
+
+    <!-- Banner con Movimiento (Carrusel) -->
+    <section class="hero-slider" id="inicio">
+        <!-- Slide 1: Bebidas Calientes -->
+        <div class="slide slide-1 active">
+            <div class="slide-content">
+                <h2>Bebidas Calientes (8 oz)</h2>
+                <p>Disfruta de nuestro Americano, Espresso, Capuccino y Latte recién hechos.</p>
+            </div>
+        </div>
+        <!-- Slide 2: Bebidas Heladas -->
+        <div class="slide slide-2">
+            <div class="slide-content">
+                <h2>Bebidas Heladas (12 oz)</h2>
+                <p>Refrescantes opciones como Ice Coffee, Ice Latte e Ice Capuccino.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menú Principal -->
+    <section class="menu-section" id="menu">
+        <h2 class="section-title">Nuestro Menú</h2>
+        
+        <div class="menu-grid">
+            <!-- Caliente -->
+            <div class="menu-card">
+                <h3>Caliente <span class="size-badge">8 oz</span></h3>
+                <ul class="menu-list">
+                    <li>Americano</li>
+                    <li>Shot Espresso</li>
+                    <li>Capuccino</li>
+                    <li>Latte</li>
+                </ul>
+                <div class="flavor-box">
+                    <h4>Saborizantes disponibles:</h4>
+                    <div class="flavor-tags">
+                        <span class="tag">Mocca</span>
+                        <span class="tag">Vainilla</span>
+                        <span class="tag">Caramelo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Helado -->
+            <div class="menu-card">
+                <h3>Helado <span class="size-badge">12 oz</span></h3>
+                <ul class="menu-list">
+                    <li>Ice Coffee</li>
+                    <li>Ice Latte</li>
+                    <li>Ice Capuccino</li>
+                </ul>
+                <div class="flavor-box">
+                    <h4>Saborizantes disponibles:</h4>
+                    <div class="flavor-tags">
+                        <span class="tag">Mocca</span>
+                        <span class="tag">Vainilla</span>
+                        <span class="tag">Caramelo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Aroma Café - Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- JavaScript para animación del inicio (Carrusel) -->
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Cambia la imagen del slider cada 4 segundos
+        setInterval(nextSlide, 4000);
+    </script>
+</body>
+</html>
