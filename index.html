@@ -7,7 +7,67 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root {
+        :root {.seccion-proyecto {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.encabezado-proyecto {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo-proyecto {
+  max-width: 250px;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+.foto-equipo {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.contenido-beneficios h2 {
+  color: #6f4e37; /* Color café */
+  text-align: center;
+  margin-top: 30px;
+}
+
+.introduccion {
+  font-size: 1.1em;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.lista-beneficios {
+  list-style: none;
+  padding: 0;
+}
+
+.lista-beneficios li {
+  background-color: #f9f9f9;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-left: 5px solid #6f4e37;
+  border-radius: 4px;
+  line-height: 1.5;
+}
+
+.lista-beneficios strong {
+  color: #4a3222;
+  display: block;
+  margin-bottom: 5px;
+}
             --primary: #4a2c2a;
             --accent: #d4a373;
             --bg-light: #fefae0;
@@ -240,7 +300,7 @@
   <a href="#inicio">Inicio</a>
   <a href="#menu">Menú</a>
   <a href="#aprendizaje">Aprendizaje</a>
-</nav>
+  <a href="#nuestro-proyecto">Nuestro Proyecto</a>
     </header>
 <!-- Sección Aprendizaje -->
 <section id="aprendizaje" style="padding: 2rem; max-width: 900px; margin: auto;">
@@ -303,6 +363,56 @@
       </ul>
     </div>
   </article>
+</section><section id="nuestro-proyecto" class="seccion-proyecto">
+  <div class="contenedor-proyecto">
+    
+    <!-- Encabezado con Logo -->
+    <div class="encabezado-proyecto">
+      <img src="5958.jpg" alt="Logo Aroma Café" class="logo-proyecto">
+      <h1>Nuestro Proyecto</h1>
+    </div>
+
+    <!-- Foto del Equipo / Taller -->
+    <div class="galeria-proyecto">
+      <img src="00ec19e8-ca21-4962-b846-20c39be67132.jpg" alt="Equipo de Aroma Café en taller de preparación" class="foto-equipo">
+    </div>
+
+    <!-- Contenido e Información -->
+    <div class="contenido-beneficios">
+      <h2>BENEFICIOS E IMPACTO ESPERADO</h2>
+      <p class="introduccion">
+        Con nuestro emprendimiento esperamos obtener beneficios educativos, económicos y sociales.
+      </p>
+
+      <ul class="lista-beneficios">
+        <li>
+          <strong>Beneficio educativo:</strong> 
+          Podremos aplicar conocimientos de diferentes asignaturas en una situación práctica y real.
+        </li>
+        <li>
+          <strong>Beneficio emprendedor:</strong> 
+          Aprenderemos a organizar un pequeño negocio, calcular costos, establecer precios y atender clientes.
+        </li>
+        <li>
+          <strong>Beneficio cultural:</strong> 
+          Compartiremos con los visitantes información sobre la importancia y la historia del café en El Salvador.
+        </li>
+        <li>
+          <strong>Beneficio para la comunidad educativa:</strong> 
+          Ofreceremos bebidas y postres a precios accesibles, creando un espacio agradable durante la feria.
+        </li>
+        <li>
+          <strong>Beneficio ambiental:</strong> 
+          Utilizaremos, cuando sea posible, empaques amigables con el medio ambiente, como parte de nuestra propuesta de sostenibilidad.
+        </li>
+        <li>
+          <strong>Impacto en nosotros:</strong> 
+          Este proyecto nos ayudará a desarrollar responsabilidad, creatividad, liderazgo, comunicación, organización y trabajo en equipo.
+        </li>
+      </ul>
+    </div>
+
+  </div>
 </section>
 
 
@@ -325,66 +435,102 @@
     </section>
 
     <!-- Menú Principal -->
-    <section class="menu-section" id="menu">
-        <h2 class="section-title">Nuestro Menú</h2>
-        
-        <div class="menu-grid">
-            <!-- Caliente -->
-            <div class="menu-card">
-                <h3>Caliente <span class="size-badge">8 oz</span></h3>
-                <ul class="menu-list">
-                    <li>Americano</li>
-                    <li>Shot Espresso</li>
-                    <li>Capuccino</li>
-                    <li>Latte</li>
-                </ul>
-                <div class="flavor-box">
-                    <h4>Saborizantes disponibles:</h4>
-                    <div class="flavor-tags">
-                        <span class="tag">Mocca</span>
-                        <span class="tag">Vainilla</span>
-                        <span class="tag">Caramelo</span>
+<section class="menu-section" id="menu">
+    <h2 class="section-title">Nuestro Menú</h2>
+    
+    <div class="menu-grid">
+        <!-- Caliente -->
+        <div class="menu-card">
+            <h3>Caliente <span class="size-badge">8 oz</span></h3>
+            <ul class="menu-list">
+                <li>
+                    <span>Americano</span>
+                    <span class="price">$1.00</span>
+                </li>
+                <li>
+                    <span>Shot Espresso</span>
+                    <span class="price">$1.00</span>
+                </li>
+                <li>
+                    <div>
+                        <span>Capuccino</span>
+                        <p class="description">Espresso con leche y una capa de espuma de leche con saborizantes al gusto.</p>
                     </div>
-                </div>
-            </div>
-
-            <!-- Helado -->
-            <div class="menu-card">
-                <h3>Helado <span class="size-badge">12 oz</span></h3>
-                <ul class="menu-list">
-                    <li>Ice Coffee</li>
-                    <li>Ice Latte</li>
-                    <li>Ice Capuccino</li>
-                </ul>
-                <div class="flavor-box">
-                    <h4>Saborizantes disponibles:</h4>
-                    <div class="flavor-tags">
-                        <span class="tag">Mocca</span>
-                        <span class="tag">Vainilla</span>
-                        <span class="tag">Caramelo</span>
+                    <span class="price">$1.25</span>
+                </li>
+                <li>
+                    <div>
+                        <span>Latte</span>
+                        <p class="description">Espresso con más leche caliente que un café con leche y una capa fina de espuma.</p>
                     </div>
+                    <span class="price">$1.25</span>
+                </li>
+            </ul>
+            <div class="flavor-box">
+                <h4>Saborizantes disponibles:</h4>
+                <div class="flavor-tags">
+                    <span class="tag">Mocca</span>
+                    <span class="tag">Vainilla</span>
+                    <span class="tag">Caramelo</span>
                 </div>
             </div>
         </div>
-    </section>
 
-    <footer>
-        <p>&copy; 2026 Aroma Café - Todos los derechos reservados.</p>
-    </footer>
+        <!-- Helado -->
+        <div class="menu-card">
+            <h3>Helado <span class="size-badge">12 oz</span></h3>
+            <ul class="menu-list">
+                <li>
+                    <div>
+                        <span>Ice Coffee</span>
+                        <p class="description">Espresso servido con hielo.</p>
+                    </div>
+                    <span class="price">$1.25</span>
+                </li>
+                <li>
+                    <div>
+                        <span>Iced Latte</span>
+                        <p class="description">Espresso con leche fría y hielo.</p>
+                    </div>
+                    <span class="price">$1.50</span>
+                </li>
+                <li>
+                    <div>
+                        <span>Ice Capuccino</span>
+                        <p class="description">Espresso con hielos y leche y una capa de espuma de leche con saborizantes al gusto.</p>
+                    </div>
+                    <span class="price">$1.50</span>
+                </li>
+            </ul>
+            <div class="flavor-box">
+                <h4>Saborizantes disponibles:</h4>
+                <div class="flavor-tags">
+                    <span class="tag">Mocca</span>
+                    <span class="tag">Vainilla</span>
+                    <span class="tag">Caramelo</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <!-- JavaScript para animación del inicio (Carrusel) -->
-    <script>
-        const slides = document.querySelectorAll('.slide');
-        let currentSlide = 0;
+<footer>
+    <p>&copy; 2026 Aroma Café - Todos los derechos reservados.</p>
+</footer>
 
-        function nextSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
+<!-- JavaScript para animación del inicio (Carrusel) -->
+<script>
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
 
-        // Cambia la imagen del slider cada 4 segundos
-        setInterval(nextSlide, 4000);
-    </script>
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+
+    // Cambia la imagen del slider cada 4 segundos
+    setInterval(nextSlide, 4000);
+</script>
 </body>
 </html>
